@@ -33,6 +33,7 @@ namespace StronglyTypedCollections
             list.Add(new Product("Assasins", 14.99m));
             list.Add(new Product("Frogs", 13.99m));
             list.Add(new Product("Sweeney Todd", 10.99m));
+            return list;
         }
 
         public override string ToString()
