@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheProductType;
 
 namespace TheProductType
 {
@@ -21,7 +22,7 @@ namespace TheProductType
             get { return price; }
         }
 
-        public Product (string name, decimal price)
+        public Product(string name, decimal price)
         {
             this.name = name;
             this.price = price;
@@ -42,7 +43,40 @@ namespace TheProductType
         {
             return string.Format("{0}: {1}", name, price);
         }
+
+      
+
     }
+    //Sorting by Name
+    public class ProductNameComparer : IComparer
+    {
+        public int Compare(object x, object y)
+        {
+            Product first = (Product)x;
+            Product second = (Product)y;
+            return first.Name.CompareTo(second.Name);
+        }
+
+     
+      
+    }
+
+    public class SortArrayList
+    {
+        ArrayList products = Product.GetSampleProducts();
+
+        //Something is wrong here.
+
+    SortArrayList.products.Sort (new ProductNameComparer());
+        foreach(Product product in products)
+            {
+            Console.WriteLine(product);
+            }
+}
+
+  
+  
+
 }
 
 /*limitations:
